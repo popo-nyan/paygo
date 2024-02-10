@@ -5,17 +5,15 @@ import (
 	"time"
 )
 
-const (
-	VERSION          = "0.0.1"
-	PAYPAYAPPVERSION = "4.31.0"
-)
+const VERSION = "0.0.1"
 
 func New(token string) (s *Session, err error) {
 	d := GenerateDeviceInfo()
 	s = &Session{
 		Client:      &http.Client{Timeout: 30 * time.Second},
 		AccessToken: token,
-		UserAgent:   "PaypayApp/" + PAYPAYAPPVERSION + " Android" + d.OsReleaseVersion,
+		UserAgent:   "PaypayApp/" + PayPayAppVersion + " Android" + d.OsReleaseVersion,
 	}
+	c := OrderStatusSuccess
 	return
 }

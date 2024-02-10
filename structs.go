@@ -19,6 +19,7 @@ type Session struct {
 	ClientUuid string
 	UserAgent  string
 }
+
 type Devices struct {
 	Samsung []DeviceInfo `json:"samsung"`
 }
@@ -28,6 +29,11 @@ type DeviceInfo struct {
 	OsVersion        string `json:"osVersion"`
 	OsReleaseVersion string `json:"osReleaseVersion"`
 	HardwareName     string `json:"hardwareName"`
+}
+
+type PayPayHttpResponseHeader struct {
+	ResultCode    string `json:"resultCode"`
+	ResultMessage string `json:"resultMessage"`
 }
 
 type P2PUserProfile struct {
@@ -57,6 +63,7 @@ type P2PBankTransferData struct {
 	RecipientName  string `json:"recipientName"`
 	Status         string `json:"status"`
 }
+
 type P2PMessageGroupPayData struct {
 	GroupPayStatus        string   `json:"groupPayStatus"`
 	IconImageUrls         []string `json:"iconImageUrls"`
@@ -75,6 +82,7 @@ type P2PLocalized struct {
 	En string `json:"en"`
 	Ja string `json:"ja"`
 }
+
 type P2PSubWalletSplit struct {
 	ReceiverEmoneyAmount  int64 `json:"receiverEmoneyAmount"`
 	ReceiverPrepaidAmount int64 `json:"receiverPrepaidAmount"`
@@ -140,10 +148,56 @@ type PendingP2PInfo struct {
 	SubDescription  *string    `json:"subDescription"`
 	TextDescription *string    `json:"textDescription"`
 }
+
 type P2PLinkInfo struct {
 	Message        *P2PMessageInfo `json:"message"`
 	OrderStatus    string          `json:"orderStatus"`
 	PendingP2PInfo PendingP2PInfo  `json:"pendingP2PInfo"`
 	Receiver       *P2PUserProfile `json:"receiver"`
 	Sender         *P2PUserProfile `json:"sender"`
+}
+
+type UserDefinedLimitInfo struct {
+	DailyLimit      *int64  `json:"dailyLimit"`
+	MonthlyLimit    *int64  `json:"monthlyLimit"`
+	PeriodicalType  *string `json:"periodicalType"`
+	TransactionType string  `json:"transactionType"`
+}
+
+type AcceptP2PRequestMoneyParameter struct {
+	ChannelUrl           string                `json:"channelUrl"`
+	MessageId            string                `json:"messageId"`
+	RequestId            string                `json:"requestId"`
+	RequestMoneyId       string                `json:"requestMoneyId"`
+	UserDefinedLimitInfo *UserDefinedLimitInfo `json:"userDefinedLimitInfo"`
+}
+
+type AccessHistory struct {
+	DateString string `json:"dateString"`
+	Title      string `json:"title"`
+}
+
+type GoogleAnalyticsInfo struct {
+	EventAction   string  `json:"eventAction"`
+	EventCategory string  `json:"eventCategory"`
+	EventLabel    *string `json:"eventLabel"`
+	EventLabel2   *string `json:"eventLabel2"`
+}
+
+type DisplayResponseButton struct {
+	ActionType          string               `json:"actionType"`
+	ButtonType          *string              `json:"buttonType"`
+	Deeplink            *string              `json:"deeplink"`
+	GoogleAnalyticsInfo *GoogleAnalyticsInfo `json:"googleAnalyticsInfo"`
+	NativeAction        *string              `json:"nativeAction"`
+	RedirectUrl         *string              `json:"redirectUrl"`
+	Title               *string              `json:"title"`
+}
+type ActionHalfSheet struct {
+	ActionKey            string                `json:"actionKey"`
+	ButtonList           DisplayResponseButton `json:"buttonList"`
+	CanCloseByOutsideTap bool                  `json:"canCloseByOutsideTap"`
+	ImageUrl             string                `json:"imageUrl"`
+	TextDescription      *string               `json:"textDescription"`
+	Title                string                `json:"title"`
 }
