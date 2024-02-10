@@ -1,6 +1,8 @@
 package paygo
 
-import "net/http"
+import (
+	"net/http"
+)
 
 type Session struct {
 	Client *http.Client
@@ -13,14 +15,17 @@ type Session struct {
 	AppVersion string
 	ClientName string
 
-	PayPayLang             string
-	DeviceUuid             string
-	ClientUuid             string
-	DeviceName             string
-	DeviceHardwareName     string
-	DeviceOsVersion        string
-	DeviceOsReleaseVersion string
-	Timezone               string
+	DeviceUuid string
+	ClientUuid string
+	UserAgent  string
+}
+type Devices struct {
+	Samsung []DeviceInfo `json:"samsung"`
+}
 
-	UserAgent string
+type DeviceInfo struct {
+	ModelName        string `json:"modelName"`
+	OsVersion        string `json:"osVersion"`
+	OsReleaseVersion string `json:"osReleaseVersion"`
+	HardwareName     string `json:"hardwareName"`
 }
