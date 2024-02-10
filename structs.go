@@ -83,7 +83,7 @@ type P2PSubWalletSplit struct {
 }
 
 type P2PMessageData struct {
-	Amount                *int                    `json:"amount"`
+	Amount                *int64                  `json:"amount"`
 	BankTransferData      *P2PBankTransferData    `json:"bankTransferData"`
 	Expiry                *string                 `json:"expiry"`
 	FailureType           *string                 `json:"failureType"`
@@ -115,4 +115,35 @@ type P2PMessageInfo struct {
 	User                  P2PUserProfile `json:"user"`
 	AndroidMinimumVersion string         `json:"androidMinimumVersion"`
 	IosMinimumVersion     string         `json:"iosMinimumVersion"`
+}
+
+type P2PAmount struct {
+	Amount int64  `json:"amount"`
+	Label  string `json:"label"`
+	Type   string `json:"type"`
+}
+
+type PendingP2PInfo struct {
+	AcceptedAt      *string    `json:"acceptedAt"`
+	Amount          int64      `json:"amount"`
+	AmountList      *P2PAmount `json:"amountList"`
+	CreatedAt       string     `json:"createdAt"`
+	ExpiredAt       string     `json:"expiredAt"`
+	ImageUrl        string     `json:"imageUrl"`
+	IsSetPasscode   bool       `json:"isSetPasscode"`
+	Link            *string    `json:"link"`
+	Message         *string    `json:"message"`
+	MoneyPriority   *any       `json:"moneyPriority"`
+	OrderId         string     `json:"orderId"`
+	OrderType       string     `json:"orderType"`
+	Passcode        *string    `json:"passcode"`
+	SubDescription  *string    `json:"subDescription"`
+	TextDescription *string    `json:"textDescription"`
+}
+type P2PLinkInfo struct {
+	Message        *P2PMessageInfo `json:"message"`
+	OrderStatus    string          `json:"orderStatus"`
+	PendingP2PInfo PendingP2PInfo  `json:"pendingP2PInfo"`
+	Receiver       *P2PUserProfile `json:"receiver"`
+	Sender         *P2PUserProfile `json:"sender"`
 }
