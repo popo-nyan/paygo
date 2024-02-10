@@ -1,1 +1,5 @@
 package paygo
+
+func GenerationDeviceInfo() {
+
+}
