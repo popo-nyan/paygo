@@ -14,6 +14,5 @@ func New(token string) (s *Session, err error) {
 		AccessToken: token,
 		UserAgent:   "PaypayApp/" + PayPayAppVersion + " Android" + d.OsReleaseVersion,
 	}
-	c := OrderStatusSuccess
 	return
 }

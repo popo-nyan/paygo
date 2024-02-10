@@ -24,14 +24,9 @@ func GenerateDeviceInfo() DeviceInfo {
 	}
 	return d.Samsung[rand.Intn(3-0)+0]
 }
-func MakeHMAC(msg, key string) string {
-	mac := hmac.New(sha256.New, []byte(key))
+
+func HashCalculation(msg string) string {
+	mac := hmac.New(sha256.New, []byte(HmacKey))
 	mac.Write([]byte(msg))
 	return hex.EncodeToString(mac.Sum(nil))
-
-}
-func CalculationHash(hpm string, ep string, by string) string {
-	mac := hmac.New(sha256.New, []byte(HmacKey))
-	mac.Write(([]))
-
 }
