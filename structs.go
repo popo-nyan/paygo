@@ -17,6 +17,7 @@ type Session struct {
 	DeviceUuid             string
 	ClientUuid             string
 	DeviceName             string
+	DeviceHardwareName     string
 	DeviceOsVersion        string
 	DeviceOsReleaseVersion string
 	Timezone               string
