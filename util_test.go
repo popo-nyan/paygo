@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestGenerationDeviceInfo(t *testing.T) {
-	d := GenerationDeviceInfo()
+func TestGenerateDeviceInfo(t *testing.T) {
+	d := GenerateDeviceInfo()
 	fmt.Println(d)
 }

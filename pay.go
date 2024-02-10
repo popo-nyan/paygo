@@ -11,7 +11,7 @@ const (
 )
 
 func New(token string) (s *Session, err error) {
-	d := GenerationDeviceInfo()
+	d := GenerateDeviceInfo()
 	s = &Session{
 		Client:      &http.Client{Timeout: 30 * time.Second},
 		AccessToken: token,

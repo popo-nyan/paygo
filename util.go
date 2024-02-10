@@ -7,7 +7,7 @@ import (
 	"os"
 )
 
-func GenerationDeviceInfo() DeviceInfo {
+func GenerateDeviceInfo() DeviceInfo {
 	file, err := os.Open("devices.json")
 	if err != nil {
 		log.Fatal(err)
