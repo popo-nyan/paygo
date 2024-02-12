@@ -6,6 +6,3 @@ const (
 	INFO
 	DEBUG
 )
-
-
-}

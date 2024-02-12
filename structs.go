@@ -29,6 +29,7 @@ type DeviceInfo struct {
 	OsVersion        string `json:"osVersion"`
 	OsReleaseVersion string `json:"osReleaseVersion"`
 	HardwareName     string `json:"hardwareName"`
+	DeviceBrandName  string `json:"deviceBrandName"`
 }
 
 type PayPayHttpResponseHeader struct {

@@ -27,7 +27,7 @@ const (
 type PayPayResultCode string
 
 const (
-	PayPayResultSuccess                                            PayPayResultCode = "S0000"
+	PayPayResultSyuccess                                           PayPayResultCode = "S0000"
 	PayPayResultRefreshAccessTokenRequired                         PayPayResultCode = "S0001"
 	PayPayResultAppVersionError                                    PayPayResultCode = "S1000"
 	PayPayResultUnderMaintenance                                   PayPayResultCode = "S1001"
